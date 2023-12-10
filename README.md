@@ -1,4 +1,5 @@
 # Monitoramento-Agricula-e-Pecuario
+
 RESUMO: Este artigo apresenta um trabalho em andamento de pesquisa em Internet das Coisas e como suas aplicações pode ajudar na área agrícola e agropecuária. Após alguns levantamentos nota-se que o monitoramento na agricultura e agropecuária é crucial para garantir a eficiência operacional, otimizar recursos e maximizar a produtividade. No entanto, existem diversos desafios que podem surgir ao realizar esse monitoramento, esse artigo foca na construção de um racional e proposta de melhoria no monitoramento agrícola e pecuário através da Internet promovendo melhoria para um processo monitoração. Como estudo de caso, a pesquisa propõe a explorar as necessidades e características de um ambiente real de monitoramento na cidade de São Paulo.
 
 INTRODUÇÃO E PROBLEMÁTICA
