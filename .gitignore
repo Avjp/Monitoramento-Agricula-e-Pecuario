@@ -1,2 +1,62 @@
-libraries/*
-resources/tmp/*
+import random
+import time
+
+class Sensor:
+    def __init__(self, tipo):
+        self.tipo = tipo
+
+    def coletar_dados(self):
+        # Simula a coleta de dados do sensor
+        return random.uniform(0, 100)
+
+class SistemaMonitoramento:
+    def __init__(self):
+        self.sensores = []
+        self.decisao = TomadaDecisao()
+
+    def adicionar_sensor(self, tipo):
+        # Adiciona um novo sensor ao sistema
+        sensor = Sensor(tipo)
+        self.sensores.append(sensor)
+
+    def coletar_dados_sensores(self):
+        # Coleta dados de todos os sensores no sistema
+        dados_coletados = {}
+        for sensor in self.sensores:
+            dados_coletados[sensor.tipo] = sensor.coletar_dados()
+        return dados_coletados
+
+    def analisar_dados(self, dados):
+        # Analisa os dados e toma decisões com base neles
+        decisao = self.decisao.tomar_decisao(dados)
+        if decisao:
+            print(f"Alerta: Tomar ação - {decisao}")
+
+class TomadaDecisao:
+    def tomar_decisao(self, dados):
+        # Lógica simples de tomada de decisão (pode ser expandida)
+        if dados.get("Umidade do Solo", 0) < 30:
+            return "Irrigar o solo"
+        elif dados.get("Temperatura do Ar", 0) > 80:
+            return "Ativar sistema de resfriamento"
+        else:
+            return None
+
+def main():
+    sistema = SistemaMonitoramento()
+
+    sistema.adicionar_sensor("Umidade do Solo")
+    sistema.adicionar_sensor("Temperatura do Ar")
+    sistema.adicionar_sensor("Luminosidade")
+
+    for _ in range(10):  # Simulando 10 ciclos de coleta de dados
+        dados_sensores = sistema.coletar_dados_sensores()
+        print("Dados coletados:", dados_sensores)
+
+        sistema.analisar_dados(dados_sensores)
+
+        time.sleep(2)
+
+if __name__ == "__main__":
+    main()
+
